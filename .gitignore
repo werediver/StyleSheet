@@ -1,0 +1,12 @@
+.DS_Store
+
+# Xcode personal settings
+xcuserdata/
+
+# AppCode
+.idea/
+
+# Cocoapods
+Pods/
+
+tmp/
