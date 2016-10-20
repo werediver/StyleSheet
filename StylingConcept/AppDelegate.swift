@@ -6,6 +6,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         RootStyleHolder.rootStyle = appStyle(DefaultPalette())
+        RootStyleHolder.autoapply()
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = .whiteColor()
