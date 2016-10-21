@@ -1,8 +1,8 @@
 import UIKit
 
-struct RootStyleHolder {
-    static var rootStyle: StyleProtocol?
-    static func autoapply() {
+public struct RootStyleHolder {
+    public static var rootStyle: StyleProtocol?
+    public static func autoapply() {
         struct Static { static var token = dispatch_once_t() }
         dispatch_once(&Static.token) {
             swizzleInstance(UIView.self, originalSelector: #selector(UIView.init(frame:)), swizzledSelector: #selector(UIView.__init(frame:)))
@@ -12,13 +12,13 @@ struct RootStyleHolder {
 }
 
 extension UIView {
-    private dynamic func __init(frame frame: CGRect) -> Self {
+    dynamic func __init(frame frame: CGRect) -> Self {
         let result = __init(frame: frame)
         applyRootStyle()
         return result
     }
 
-    private dynamic func __awakeFromNib() {
+    dynamic func __awakeFromNib() {
         __awakeFromNib()
         applyRootStyle()
     }
@@ -29,7 +29,7 @@ extension UIView {
 }
 
 /// Based on http://nshipster.com/method-swizzling/
-private func swizzleInstance<T: NSObject>(cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) {
+func swizzleInstance<T: NSObject>(cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) {
     let originalMethod = class_getInstanceMethod(cls, originalSelector)
     let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
 

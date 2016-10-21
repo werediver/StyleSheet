@@ -1,4 +1,5 @@
 import UIKit
+import StyleSheet
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RootStyleHolder.rootStyle = appStyle(DefaultPalette())
         RootStyleHolder.autoapply()
 
+        assert(window == nil, "Don't use `UIMainStoryboardFile`!")
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = .whiteColor()
         window!.makeKeyAndVisible()

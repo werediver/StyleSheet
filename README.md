@@ -12,4 +12,4 @@ final class BodyLabel: UILabel, BodyFontStyle, MultilineLabelStyle {}
 final class CaptionLabel: UILabel, CaptionFontStyle, MultilineLabelStyle {}
 ```
 
-See [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/StylingConcept/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/StylingConcept/RootStyle.swift) for implementation details.
+See [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift) for implementation details.

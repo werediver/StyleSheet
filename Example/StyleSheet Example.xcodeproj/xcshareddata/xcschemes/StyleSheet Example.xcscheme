@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-               BuildableName = "StylingConcept.app"
-               BlueprintName = "StylingConcept"
-               ReferencedContainer = "container:StylingConcept.xcodeproj">
+               BuildableName = "StyleSheet Example.app"
+               BlueprintName = "StyleSheet Example"
+               ReferencedContainer = "container:StyleSheet Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StylingConcept.app"
-            BlueprintName = "StylingConcept"
-            ReferencedContainer = "container:StylingConcept.xcodeproj">
+            BuildableName = "StyleSheet Example.app"
+            BlueprintName = "StyleSheet Example"
+            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StylingConcept.app"
-            BlueprintName = "StylingConcept"
-            ReferencedContainer = "container:StylingConcept.xcodeproj">
+            BuildableName = "StyleSheet Example.app"
+            BlueprintName = "StyleSheet Example"
+            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StylingConcept.app"
-            BlueprintName = "StylingConcept"
-            ReferencedContainer = "container:StylingConcept.xcodeproj">
+            BuildableName = "StyleSheet Example.app"
+            BlueprintName = "StyleSheet Example"
+            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

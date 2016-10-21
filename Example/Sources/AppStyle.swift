@@ -1,4 +1,5 @@
 import UIKit
+import StyleSheet
 
 protocol FontPaletteProtocol {
     var titleFont: UIFont { get }
