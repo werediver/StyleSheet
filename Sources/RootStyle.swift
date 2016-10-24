@@ -5,21 +5,21 @@ public struct RootStyleHolder {
     public static func autoapply() {
         struct Static { static var token = dispatch_once_t() }
         dispatch_once(&Static.token) {
-            swizzleInstance(UIView.self, originalSelector: #selector(UIView.init(frame:)), swizzledSelector: #selector(UIView.__init(frame:)))
-            swizzleInstance(UIView.self, originalSelector: #selector(UIView.awakeFromNib), swizzledSelector: #selector(UIView.__awakeFromNib))
+            swizzleInstance(UIView.self, originalSelector: #selector(UIView.init(frame:)), swizzledSelector: #selector(UIView.__stylesheet_init(frame:)))
+            swizzleInstance(UIView.self, originalSelector: #selector(UIView.awakeFromNib), swizzledSelector: #selector(UIView.__stylesheet_awakeFromNib))
         }
     }
 }
 
 extension UIView {
-    dynamic func __init(frame frame: CGRect) -> Self {
-        let result = __init(frame: frame)
+    dynamic func __stylesheet_init(frame frame: CGRect) -> Self {
+        let result = __stylesheet_init(frame: frame)
         applyRootStyle()
         return result
     }
 
-    dynamic func __awakeFromNib() {
-        __awakeFromNib()
+    dynamic func __stylesheet_awakeFromNib() {
+        __stylesheet_awakeFromNib()
         applyRootStyle()
     }
 
