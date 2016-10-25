@@ -2,6 +2,7 @@ import UIKit
 
 public struct RootStyleHolder {
     public static var rootStyle: StyleProtocol?
+
     public static func autoapply() {
         struct Static { static var token = dispatch_once_t() }
         dispatch_once(&Static.token) {

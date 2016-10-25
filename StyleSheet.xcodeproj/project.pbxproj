@@ -16,6 +16,8 @@
 		842686431DBA726400D0402D /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842686461DBA726400D0402D /* StyleSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleSheet.h; sourceTree = "<group>"; };
 		842686481DBA726400D0402D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846056BC1DBF647200A639AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		846056BD1DBF647200A639AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84E919F91DBAA6BC009AAB39 /* RootStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootStyle.swift; sourceTree = "<group>"; };
 		84E919FA1DBAA6BC009AAB39 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,6 +36,8 @@
 		842686391DBA726400D0402D = {
 			isa = PBXGroup;
 			children = (
+				846056BC1DBF647200A639AA /* LICENSE */,
+				846056BD1DBF647200A639AA /* README.md */,
 				842686451DBA726400D0402D /* Sources */,
 				842686441DBA726400D0402D /* Products */,
 			);
