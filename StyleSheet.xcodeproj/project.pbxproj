@@ -113,6 +113,7 @@
 				TargetAttributes = {
 					842686421DBA726400D0402D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -256,6 +257,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = werediver.stylesheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -274,6 +276,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = werediver.stylesheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

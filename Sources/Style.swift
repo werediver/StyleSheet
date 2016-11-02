@@ -6,12 +6,12 @@ public struct Style<Marker, Target>: StyleProtocol {
     private let body: (Target) -> ()
 
     public func apply(to some: Any) {
-        if let _ = some as? Marker, some = some as? Target {
+        if let _ = some as? Marker, let some = some as? Target {
             body(some)
         }
     }
 
-    public init(body: (Target) -> ()) { self.body = body }
+    public init(body: @escaping (Target) -> ()) { self.body = body }
 }
 
 public struct StyleSheet: StyleProtocol {

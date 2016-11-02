@@ -5,13 +5,13 @@ import StyleSheet
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        RootStyleHolder.rootStyle = appStyle(DefaultPalette())
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        RootStyleHolder.rootStyle = appStyle(palette: DefaultPalette())
         RootStyleHolder.autoapply()
 
         assert(window == nil, "Don't use `UIMainStoryboardFile`!")
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.backgroundColor = .whiteColor()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.backgroundColor = .white
         window!.makeKeyAndVisible()
 
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
