@@ -11,8 +11,10 @@
 		8466D0CD1DB7D432008E6A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466D0CC1DB7D432008E6A36 /* ViewController.swift */; };
 		8466D0D21DB7D432008E6A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8466D0D11DB7D432008E6A36 /* Assets.xcassets */; };
 		8466D0E01DB7D50B008E6A36 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466D0DF1DB7D50B008E6A36 /* AppStyle.swift */; };
+		8477CD051E130AAF00BCE1E8 /* UIKit+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477CD041E130AAF00BCE1E8 /* UIKit+Ext.swift */; };
 		84B4EE0B1DD726DB00AFE592 /* DefaultPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4EE0A1DD726DB00AFE592 /* DefaultPalette.swift */; };
-		84E91A041DBAA74E009AAB39 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E91A031DBAA738009AAB39 /* StyleSheet.framework */; };
+		84B778531DD86AA200A16D22 /* TitledSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B778521DD86AA200A16D22 /* TitledSwitch.swift */; };
+		84B778721DD88E3700A16D22 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E91A031DBAA738009AAB39 /* StyleSheet.framework */; };
 		84E91A091DBAAE2D009AAB39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E91A071DBAAE2D009AAB39 /* LaunchScreen.storyboard */; };
 		84E91A0A1DBAAE2D009AAB39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E91A081DBAAE2D009AAB39 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		84B778711DD88E1300A16D22 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8466D0C71DB7D432008E6A36 /* StyleSheet Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StyleSheet Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8466D0CA1DB7D432008E6A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +49,9 @@
 		8466D0D11DB7D432008E6A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8466D0D61DB7D432008E6A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8466D0DF1DB7D50B008E6A36 /* AppStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		8477CD041E130AAF00BCE1E8 /* UIKit+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Ext.swift"; sourceTree = "<group>"; };
 		84B4EE0A1DD726DB00AFE592 /* DefaultPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPalette.swift; sourceTree = "<group>"; };
+		84B778521DD86AA200A16D22 /* TitledSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledSwitch.swift; sourceTree = "<group>"; };
 		84E919FE1DBAA738009AAB39 /* StyleSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StyleSheet.xcodeproj; path = ../StyleSheet.xcodeproj; sourceTree = "<group>"; };
 		84E91A071DBAAE2D009AAB39 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E91A081DBAAE2D009AAB39 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -45,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E91A041DBAA74E009AAB39 /* StyleSheet.framework in Frameworks */,
+				84B778721DD88E3700A16D22 /* StyleSheet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				8466D0CA1DB7D432008E6A36 /* AppDelegate.swift */,
-				8466D0DF1DB7D50B008E6A36 /* AppStyle.swift */,
-				84B4EE0A1DD726DB00AFE592 /* DefaultPalette.swift */,
+				84B778521DD86AA200A16D22 /* TitledSwitch.swift */,
+				8477CD041E130AAF00BCE1E8 /* UIKit+Ext.swift */,
 				8466D0CC1DB7D432008E6A36 /* ViewController.swift */,
+				848765B71E16F98300A3F88A /* Style */,
 				8466D0DC1DB7D46C008E6A36 /* Resources */,
 			);
 			path = Sources;
@@ -90,6 +108,15 @@
 				84E91A081DBAAE2D009AAB39 /* Main.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		848765B71E16F98300A3F88A /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				8466D0DF1DB7D50B008E6A36 /* AppStyle.swift */,
+				84B4EE0A1DD726DB00AFE592 /* DefaultPalette.swift */,
+			);
+			name = Style;
 			sourceTree = "<group>";
 		};
 		84E919FF1DBAA738009AAB39 /* Products */ = {
@@ -110,6 +137,7 @@
 				8466D0C31DB7D432008E6A36 /* Sources */,
 				8466D0C41DB7D432008E6A36 /* Frameworks */,
 				8466D0C51DB7D432008E6A36 /* Resources */,
+				84B778711DD88E1300A16D22 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,9 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E91A091DBAAE2D009AAB39 /* LaunchScreen.storyboard in Resources */,
 				84E91A0A1DBAAE2D009AAB39 /* Main.storyboard in Resources */,
 				8466D0D21DB7D432008E6A36 /* Assets.xcassets in Resources */,
-				84E91A091DBAAE2D009AAB39 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +216,8 @@
 			files = (
 				8466D0CD1DB7D432008E6A36 /* ViewController.swift in Sources */,
 				8466D0CB1DB7D432008E6A36 /* AppDelegate.swift in Sources */,
+				8477CD051E130AAF00BCE1E8 /* UIKit+Ext.swift in Sources */,
+				84B778531DD86AA200A16D22 /* TitledSwitch.swift in Sources */,
 				8466D0E01DB7D50B008E6A36 /* AppStyle.swift in Sources */,
 				84B4EE0B1DD726DB00AFE592 /* DefaultPalette.swift in Sources */,
 			);

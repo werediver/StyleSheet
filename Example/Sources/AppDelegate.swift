@@ -6,8 +6,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        RootStyleHolder.rootStyle = appStyle(palette: DefaultPalette())
-        RootStyleHolder.autoapply()
+        // `autoapply(style: <#style#>)` uses method swizzling to hook up the view.
+        // `autoapply(style: <#style#>, mode: .Appearance)` uses `UIAppearance`.
+        try! RootStyle.autoapply(style: appStyle(palette: DefaultPalette()))
 
         assert(window == nil, "Don't use `UIMainStoryboardFile`!")
         window = UIWindow(frame: UIScreen.main.bounds)

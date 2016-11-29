@@ -6,7 +6,7 @@ xcuserdata/
 # AppCode
 .idea/
 
-# Cocoapods
+Carthage/
 Pods/
 
 tmp/

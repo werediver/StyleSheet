@@ -33,21 +33,21 @@ Defining the UI style in code is good because:
 Because we can do better:
 
 - Avoid the use of the appearance-proxy.
-- Access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`).
-- Apply the style _as soon as possible_ (in `init(frame:)` or `awakeFromNib()` of `UIView` class instead of before the first call of `layoutSubviews()`).
+- Access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`). And nested objects!
+- Apply the style _earlier_ (in `willMove(toSuperview:)` instead of `layoutSubviews()`). Or stick to the old way, either is possible.
 
 ## Installation
 
 ### Carthage
 
 ```
-github "werediver/StyleSheet" ~> 1.0
+github "werediver/StyleSheet" ~> 2.0
 ```
 
 ### CacoaPods
 
 ```ruby
-pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v1.0.0'
+pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.0.0'
 ```
 
 Note: check the latest available version!
