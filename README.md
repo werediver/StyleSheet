@@ -18,6 +18,24 @@ For complete usage example see the [Example](https://github.com/werediver/StyleS
 
 For implementation details see [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift).
 
+## Motivation
+
+### Why to define the UI style in code?
+
+Defining the UI style in code is good because:
+
+- It gives _reproducible_ results.
+- It gives _reusable_ results.
+- It gives _composable_ results.
+
+### Why not to use `UIAppearance`?
+
+Because we can do better:
+
+- Avoid the use of the appearance-proxy.
+- Access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`).
+- Apply the style _as soon as possible_ (in `init(frame:)` or `awakeFromNib()` of `UIView` class instead of before the first call of `layoutSubviews()`).
+
 ## Installation
 
 ### Carthage
@@ -31,6 +49,8 @@ github "werediver/StyleSheet" ~> 1.0
 ```ruby
 pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v1.0.0'
 ```
+
+Note: check the latest available version!
 
 ## License
 
