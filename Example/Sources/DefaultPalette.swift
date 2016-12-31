@@ -2,6 +2,12 @@ import UIKit
 
 protocol PaletteProtocol {
     var fonts: FontPaletteProtocol { get }
+    var offsets: OffsetPaletteProtocol { get }
+}
+
+protocol OffsetPaletteProtocol {
+    var xSmall: CGFloat { get }
+    var small: CGFloat { get }
 }
 
 protocol FontPaletteProtocol {
@@ -11,6 +17,11 @@ protocol FontPaletteProtocol {
 }
 
 struct DefaultPalette: PaletteProtocol {
+    struct DefaultOffsetPalette: OffsetPaletteProtocol {
+        let xSmall: CGFloat = 4
+        let small: CGFloat = 8
+    }
+
     struct DefaultFontPalette: FontPaletteProtocol {
         let titleFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title3)
         let bodyFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
@@ -18,4 +29,5 @@ struct DefaultPalette: PaletteProtocol {
     }
 
     let fonts: FontPaletteProtocol = DefaultFontPalette()
+    let offsets: OffsetPaletteProtocol = DefaultOffsetPalette()
 }

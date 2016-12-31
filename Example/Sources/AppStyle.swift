@@ -31,8 +31,13 @@ func appStyle(palette: PaletteProtocol) -> StyleProtocol {
         },
 
         Style<RoundedCornersStyle, UIView> {
-            $0.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-            $0.layer.cornerRadius = 5
+            $0.layoutMargins = UIEdgeInsets(
+                top   : palette.offsets.xSmall,
+                left  : palette.offsets.small,
+                bottom: palette.offsets.small,
+                right : palette.offsets.xSmall
+            )
+            $0.layer.cornerRadius = palette.offsets.xSmall
             $0.clipsToBounds = true
         },
 

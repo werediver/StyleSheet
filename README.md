@@ -14,6 +14,8 @@ final class BodyLabel: UILabel, BodyFontStyle, MultilineLabelStyle {}
 final class CaptionLabel: UILabel, CaptionFontStyle, MultilineLabelStyle {}
 ```
 
+![Plain UI](Images/example-plain-320.png) ![Styled UI](Images/example-styled-320.png)
+
 For complete usage example see the [Example](https://github.com/werediver/StyleSheet/tree/master/Example) project.
 
 For implementation details see [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift).
@@ -47,7 +49,7 @@ github "werediver/StyleSheet" ~> 2.0
 ### CacoaPods
 
 ```ruby
-pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.0.0'
+pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.0.1'
 ```
 
 Note: check the latest available version!
