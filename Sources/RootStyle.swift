@@ -1,6 +1,8 @@
 import UIKit
 
 public struct RootStyle {
+    private static var isStyleAppliedKey = "isStyleApplied"
+
     public enum AutoapplyMode {
         case Swizzle
         case Appearance
@@ -18,14 +20,23 @@ public struct RootStyle {
         self.style = style
     }
 
+    /// Apply the root style to `some` object once. Subsequent calls do nothing.
+    public static func apply(to some: AnyObject) {
+        if objc_getAssociatedObject(some, &isStyleAppliedKey) == nil {
+            objc_setAssociatedObject(some, &isStyleAppliedKey, true, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            style?.apply(to: some)
+        }
+    }
+
+    // Apply the root style to every `UIView` automatically once.
     public static func autoapply(style: StyleProtocol, mode: AutoapplyMode = .Swizzle) throws {
         try safeguard()
         self.style = style
         switch mode {
             case .Swizzle:
-                swizzleInstance(UIView.self, originalSelector: #selector(UIView.willMove(toSuperview:)), swizzledSelector: #selector(UIView.__stylesheet_willMove(toSuperview:)))
+                swizzleInstance(UIView.self, originalSelector: #selector(UIView.didMoveToWindow), swizzledSelector: #selector(UIView.__stylesheet_didMoveToWindow))
             case .Appearance:
-                UIView.appearance().applyRootStyle()
+                UIView.appearance().__stylesheet_applyRootStyle()
         }
     }
 
@@ -40,26 +51,19 @@ public struct RootStyle {
 }
 
 extension UIView {
-    private struct AssociatedKey {
-        static var isStyleApplied = "isStyleApplied"
-    }
-
-    fileprivate dynamic func __stylesheet_willMove(toSuperview newSuperview: UIView?) {
-        __stylesheet_willMove(toSuperview: newSuperview)
-        if objc_getAssociatedObject(self, &AssociatedKey.isStyleApplied) == nil {
-            objc_setAssociatedObject(self, &AssociatedKey.isStyleApplied, true, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            applyRootStyle()
-        }
+    fileprivate dynamic func __stylesheet_didMoveToWindow() {
+        __stylesheet_didMoveToWindow()
+        RootStyle.apply(to: self)
     }
 
     // This method should look like a setter to be compatible with `UIAppearance`.
-    fileprivate dynamic func applyRootStyle(_: Any? = nil) {
-        RootStyle.style?.apply(to: self)
+    fileprivate dynamic func __stylesheet_applyRootStyle(_: Any? = nil) {
+        RootStyle.apply(to: self)
     }
 }
 
 /// Based on http://nshipster.com/method-swizzling/
-fileprivate func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) {
+private func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) {
     let originalMethod = class_getInstanceMethod(cls, originalSelector)
     let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
 

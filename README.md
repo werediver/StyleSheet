@@ -4,7 +4,7 @@
 
 # StyleSheet
 
-An approach to define composable UI styles.
+An approach to define reusable and composable UI styles.
 
 Having some base styles defined you can use them like so:
 
@@ -16,9 +16,9 @@ final class CaptionLabel: UILabel, CaptionFontStyle, MultilineLabelStyle {}
 
 ![Plain UI](Images/example-plain-320.png) ![Styled UI](Images/example-styled-320.png)
 
-For complete usage example see the [Example](https://github.com/werediver/StyleSheet/tree/master/Example) project.
+For a complete usage example see the [Example](https://github.com/werediver/StyleSheet/tree/master/Example) project.
 
-For implementation details see [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift).
+For the implementation details see [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift).
 
 ## Motivation
 
@@ -32,24 +32,20 @@ Defining the UI style in code is good because:
 
 ### Why not to use `UIAppearance`?
 
-Because we can do better:
-
-- Avoid the use of the appearance-proxy.
-- Access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`). And nested objects!
-- Apply the style _earlier_ (in `willMove(toSuperview:)` instead of `layoutSubviews()`). Or stick to the old way, either is possible.
+Because we can do better. By avoiding the use of the appearance-proxy we can access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`), and nested objects!
 
 ## Installation
 
 ### Carthage
 
 ```
-github "werediver/StyleSheet" ~> 2.0
+github "werediver/StyleSheet" ~> 2.1
 ```
 
 ### CacoaPods
 
 ```ruby
-pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.0.1'
+pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.1.0'
 ```
 
 Note: check the latest available version!

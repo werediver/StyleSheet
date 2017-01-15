@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "StyleSheet"
-  s.version = "2.0.1"
+  s.version = "2.1.0"
   s.authors = { "Raman Fedaseyeu" => "werediver@gmail.com" }
   s.license = "MIT"
   s.homepage = "https://github.com/werediver/StyleSheet"
