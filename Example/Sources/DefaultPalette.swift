@@ -1,8 +1,8 @@
 import UIKit
 
 protocol PaletteProtocol {
-    var fonts: FontPaletteProtocol { get }
-    var offsets: OffsetPaletteProtocol { get }
+    var font: FontPaletteProtocol { get }
+    var offset: OffsetPaletteProtocol { get }
 }
 
 protocol OffsetPaletteProtocol {
@@ -11,23 +11,23 @@ protocol OffsetPaletteProtocol {
 }
 
 protocol FontPaletteProtocol {
-    var titleFont: UIFont { get }
-    var bodyFont: UIFont { get }
-    var captionFont: UIFont { get }
+    var title: UIFont { get }
+    var body: UIFont { get }
+    var caption: UIFont { get }
 }
 
 struct DefaultPalette: PaletteProtocol {
-    struct DefaultOffsetPalette: OffsetPaletteProtocol {
+    let font: FontPaletteProtocol = FontPalette()
+    let offset: OffsetPaletteProtocol = OffsetPalette()
+
+    struct OffsetPalette: OffsetPaletteProtocol {
         let xSmall: CGFloat = 4
         let small: CGFloat = 8
     }
 
-    struct DefaultFontPalette: FontPaletteProtocol {
-        let titleFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title3)
-        let bodyFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-        let captionFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+    struct FontPalette: FontPaletteProtocol {
+        let title = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title3)
+        let body = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        let caption = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
     }
-
-    let fonts: FontPaletteProtocol = DefaultFontPalette()
-    let offsets: OffsetPaletteProtocol = DefaultOffsetPalette()
 }

@@ -8,7 +8,7 @@ protocol MultilineLabelStyle {}
 protocol RoundedCornersStyle {}
 protocol LightBorderStyle {}
 
-func appStyle(palette: PaletteProtocol) -> StyleProtocol {
+func appStyle(palette p: PaletteProtocol) -> StyleProtocol {
     return StyleSheet(styles: [
         /*
         Style<Any, UIView> { // DEBUG
@@ -17,13 +17,13 @@ func appStyle(palette: PaletteProtocol) -> StyleProtocol {
         },
         */
 
-        Style<TitleFontStyle, UILabel> { $0.font = palette.fonts.titleFont },
+        Style<TitleFontStyle, UILabel> { $0.font = p.font.title },
 
-        Style<BodyFontStyle, UILabel> { $0.font = palette.fonts.bodyFont },
-        Style<BodyFontStyle, UITextField> { $0.font = palette.fonts.bodyFont },
-        Style<BodyFontStyle, UITextView> { $0.font = palette.fonts.bodyFont },
+        Style<BodyFontStyle, UILabel> { $0.font = p.font.body },
+        Style<BodyFontStyle, UITextField> { $0.font = p.font.body },
+        Style<BodyFontStyle, UITextView> { $0.font = p.font.body },
 
-        Style<CaptionFontStyle, UILabel> { $0.font = palette.fonts.captionFont },
+        Style<CaptionFontStyle, UILabel> { $0.font = p.font.caption },
 
         Style<MultilineLabelStyle, UILabel> {
             $0.numberOfLines = 0
@@ -32,12 +32,12 @@ func appStyle(palette: PaletteProtocol) -> StyleProtocol {
 
         Style<RoundedCornersStyle, UIView> {
             $0.layoutMargins = UIEdgeInsets(
-                top   : palette.offsets.xSmall,
-                left  : palette.offsets.small,
-                bottom: palette.offsets.small,
-                right : palette.offsets.xSmall
+                top   : p.offset.xSmall,
+                left  : p.offset.small,
+                bottom: p.offset.small,
+                right : p.offset.xSmall
             )
-            $0.layer.cornerRadius = palette.offsets.xSmall
+            $0.layer.cornerRadius = p.offset.xSmall
             $0.clipsToBounds = true
         },
 

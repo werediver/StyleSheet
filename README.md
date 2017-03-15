@@ -16,36 +16,46 @@ final class CaptionLabel: UILabel, CaptionFontStyle, MultilineLabelStyle {}
 
 ![Plain UI](Images/example-plain-320.png) ![Styled UI](Images/example-styled-320.png)
 
-For a complete usage example see the [Example](https://github.com/werediver/StyleSheet/tree/master/Example) project.
+For a complete usage example see the [Example](Example/) project.
 
-For the implementation details see [`Style.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/Style.swift) and [`RootStyle.swift`](https://github.com/werediver/StyleSheet/blob/master/Sources/RootStyle.swift).
+For the implementation details see [`Style.swift`](Sources/Style.swift) and [`RootStyle.swift`](Sources/RootStyle.swift).
 
 ## Motivation
 
 ### Why to define the UI style in code?
 
-Defining the UI style in code is good because:
+Defining the UI style in code is good because it gives
 
-- It gives _reproducible_ results.
-- It gives _reusable_ results.
-- It gives _composable_ results.
+- _reproducible_,
+- _reusable_,
+- and _composable_ results.
 
-### Why not to use `UIAppearance`?
+### Why not to use UIAppearance?
 
 Because we can do better. By avoiding the use of the appearance-proxy we can access _all_ properties and methods (not only `UI_APPEARANCE_SELECTOR` and `dynamic`), and nested objects!
+
+## Supported base classes
+
+| Base class               | UIAppearance | UIAppearanceContainer | StyleSheet | Notes               |
+|--------------------------|--------------|-----------------------|------------|---------------------|
+| UIView                   | ✓            | ✓                     | ✓          |                     |
+| UIViewController         |              | ✓                     | _possible_ | Open a ticket if interested |
+| UIPresentationController |              | ✓                     | _possible_ | Open a ticket if interested |
+| UIPopoverController      |              | ✓                     | _possible_ | Deprecated in iOS 9 |
+| UIBarItem                | ✓            |                       | ✗          | See the issue [#1](https://github.com/werediver/StyleSheet/issues/1) |
 
 ## Installation
 
 ### Carthage
 
 ```
-github "werediver/StyleSheet" ~> 2.1
+github "werediver/StyleSheet" ~> 3.0
 ```
 
 ### CacoaPods
 
 ```ruby
-pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v2.1.0'
+pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v3.0.0'
 ```
 
 Note: check the latest available version!

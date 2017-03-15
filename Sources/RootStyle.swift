@@ -3,14 +3,14 @@ import UIKit
 public struct RootStyle {
     private static var isStyleAppliedKey = "isStyleApplied"
 
-    public enum AutoapplyMode {
-        case Swizzle
-        case Appearance
+    public enum AutoapplyMethod {
+        case swizzle
+        case appearance
     }
 
-    enum Failure: Error {
-        case NotOnMainThread
-        case AlreadyInitialized
+    public enum Failure: Error {
+        case notOnMainThread
+        case alreadyInitialized
     }
 
     public private(set) static var style: StyleProtocol?
@@ -29,23 +29,23 @@ public struct RootStyle {
     }
 
     // Apply the root style to every `UIView` automatically once.
-    public static func autoapply(style: StyleProtocol, mode: AutoapplyMode = .Swizzle) throws {
+    public static func autoapply(style: StyleProtocol, mode: AutoapplyMethod = .swizzle) throws {
         try safeguard()
         self.style = style
         switch mode {
-            case .Swizzle:
+            case .swizzle:
                 swizzleInstance(UIView.self, originalSelector: #selector(UIView.didMoveToWindow), swizzledSelector: #selector(UIView.__stylesheet_didMoveToWindow))
-            case .Appearance:
+            case .appearance:
                 UIView.appearance().__stylesheet_applyRootStyle()
         }
     }
 
     private static func safeguard() throws {
         if !Thread.isMainThread {
-            throw Failure.NotOnMainThread
+            throw Failure.notOnMainThread
         }
         if style != nil {
-            throw Failure.AlreadyInitialized
+            throw Failure.alreadyInitialized
         }
     }
 }
