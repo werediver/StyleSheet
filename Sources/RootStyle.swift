@@ -1,10 +1,19 @@
+#if os(iOS) || os(tvOS)
 import UIKit
+private typealias View = UIView
+private let ViewDidMoveToWindowSelector = #selector(View.didMoveToWindow)
+#elseif os(OSX)
+import Cocoa
+private typealias View = NSView
+private let ViewDidMoveToWindowSelector = #selector(View.viewDidMoveToWindow)
+#endif
 
 public struct RootStyle {
     private static var isStyleAppliedKey = "isStyleApplied"
 
     public enum AutoapplyMethod {
         case swizzle
+        @available(OSX, unavailable)
         case appearance
     }
 
@@ -34,9 +43,11 @@ public struct RootStyle {
         self.style = style
         switch mode {
             case .swizzle:
-                swizzleInstance(UIView.self, originalSelector: #selector(UIView.didMoveToWindow), swizzledSelector: #selector(UIView.__stylesheet_didMoveToWindow))
+                swizzleInstance(View.self, originalSelector: ViewDidMoveToWindowSelector, swizzledSelector: #selector(View.__stylesheet_didMoveToWindow))
             case .appearance:
-                UIView.appearance().__stylesheet_applyRootStyle()
+            #if os(iOS) || os(tvOS)
+                View.appearance().__stylesheet_applyRootStyle()
+            #endif
         }
     }
 
@@ -50,7 +61,7 @@ public struct RootStyle {
     }
 }
 
-extension UIView {
+extension View {
     fileprivate dynamic func __stylesheet_didMoveToWindow() {
         __stylesheet_didMoveToWindow()
         RootStyle.apply(to: self)

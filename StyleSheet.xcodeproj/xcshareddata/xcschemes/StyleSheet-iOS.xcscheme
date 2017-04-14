@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "842686421DBA726400D0402D"
                BuildableName = "StyleSheet.framework"
-               BlueprintName = "StyleSheet"
+               BlueprintName = "StyleSheet-iOS"
                ReferencedContainer = "container:StyleSheet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "842686421DBA726400D0402D"
             BuildableName = "StyleSheet.framework"
-            BlueprintName = "StyleSheet"
+            BlueprintName = "StyleSheet-iOS"
             ReferencedContainer = "container:StyleSheet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "842686421DBA726400D0402D"
             BuildableName = "StyleSheet.framework"
-            BlueprintName = "StyleSheet"
+            BlueprintName = "StyleSheet-iOS"
             ReferencedContainer = "container:StyleSheet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

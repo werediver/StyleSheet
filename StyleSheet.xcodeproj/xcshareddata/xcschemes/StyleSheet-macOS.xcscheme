@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-               BuildableName = "StyleSheet Example.app"
-               BlueprintName = "StyleSheet Example"
-               ReferencedContainer = "container:StyleSheet Example.xcodeproj">
+               BlueprintIdentifier = "84CB88C51EA0C81400B83065"
+               BuildableName = "StyleSheet.framework"
+               BlueprintName = "StyleSheet-macOS"
+               ReferencedContainer = "container:StyleSheet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StyleSheet Example.app"
-            BlueprintName = "StyleSheet Example"
-            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,23 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StyleSheet Example.app"
-            BlueprintName = "StyleSheet Example"
-            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
+            BlueprintIdentifier = "84CB88C51EA0C81400B83065"
+            BuildableName = "StyleSheet.framework"
+            BlueprintName = "StyleSheet-macOS"
+            ReferencedContainer = "container:StyleSheet.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -77,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8466D0C61DB7D432008E6A36"
-            BuildableName = "StyleSheet Example.app"
-            BlueprintName = "StyleSheet Example"
-            ReferencedContainer = "container:StyleSheet Example.xcodeproj">
+            BlueprintIdentifier = "84CB88C51EA0C81400B83065"
+            BuildableName = "StyleSheet.framework"
+            BlueprintName = "StyleSheet-macOS"
+            ReferencedContainer = "container:StyleSheet.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

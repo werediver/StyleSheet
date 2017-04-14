@@ -20,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		84CB88D31EA0D1CA00B83065 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E919FE1DBAA738009AAB39 /* StyleSheet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84CB88C61EA0C81400B83065;
+			remoteInfo = "StyleSheet-macOS";
+		};
 		84E91A021DBAA738009AAB39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E919FE1DBAA738009AAB39 /* StyleSheet.xcodeproj */;
@@ -123,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				84E91A031DBAA738009AAB39 /* StyleSheet.framework */,
+				84CB88D41EA0D1CA00B83065 /* StyleSheet.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,6 +195,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		84CB88D41EA0D1CA00B83065 /* StyleSheet.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = StyleSheet.framework;
+			remoteRef = 84CB88D31EA0D1CA00B83065 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		84E91A031DBAA738009AAB39 /* StyleSheet.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
