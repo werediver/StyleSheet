@@ -66,7 +66,7 @@ public struct RootStyle {
     }
 }
 
-fileprivate extension View {
+private extension View {
     @objc dynamic
     func __stylesheet_didMoveToWindow() {
         __stylesheet_didMoveToWindow()
