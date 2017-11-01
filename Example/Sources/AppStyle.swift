@@ -8,7 +8,7 @@ protocol MultilineLabelStyle {}
 protocol RoundedCornersStyle {}
 protocol LightBorderStyle {}
 
-func appStyle(palette p: PaletteProtocol) -> StyleProtocol {
+func appStyle(palette p: PaletteProtocol) -> StyleApplicator {
     return StyleSheet(styles: [
         /*
         Style<Any, UIView> { // DEBUG

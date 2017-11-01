@@ -23,9 +23,9 @@ public struct RootStyle {
         case autoapplyFailed
     }
 
-    public private(set) static var style: StyleProtocol?
+    public private(set) static var style: StyleApplicator?
 
-    public static func set(style: StyleProtocol) throws {
+    public static func set(style: StyleApplicator) throws {
         try safeguard()
         self.style = style
     }
@@ -39,7 +39,7 @@ public struct RootStyle {
     }
 
     // Apply the root style to every `UIView` automatically once.
-    public static func autoapply(style: StyleProtocol, mode: AutoapplyMethod = .swizzle) throws {
+    public static func autoapply(style: StyleApplicator, mode: AutoapplyMethod = .swizzle) throws {
         try safeguard()
         self.style = style
         switch mode {
