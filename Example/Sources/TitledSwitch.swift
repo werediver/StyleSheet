@@ -51,8 +51,8 @@ final class TitledSwitchView: UIView {
         [titleLabel, detailLabel, switchView]
             .forEach(self.addSubview)
 
-        titleLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
-        titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
+        titleLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
 
         titleLabel.leftAnchor.constraint(equalTo: self.layoutMarginsGuide.leftAnchor)
             .activate()
@@ -63,7 +63,7 @@ final class TitledSwitchView: UIView {
             .activate()
         titleLabel.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor)
             .activate()
-            .priority = UILayoutPriorityDefaultHigh
+            .priority = UILayoutPriority.defaultHigh
         titleLabel.centerYAnchor.constraint(equalTo: switchView.centerYAnchor)
             .activate()
 
@@ -73,9 +73,9 @@ final class TitledSwitchView: UIView {
             .activate()
         switchView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor)
             .activate()
-            .priority = UILayoutPriorityDefaultHigh
+            .priority = UILayoutPriority.defaultHigh
 
-        detailLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        detailLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
 
         detailLabel.leftAnchor.constraint(equalTo: self.layoutMarginsGuide.leftAnchor)
             .activate()

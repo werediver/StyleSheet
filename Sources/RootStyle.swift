@@ -20,6 +20,7 @@ public struct RootStyle {
     public enum Failure: Error {
         case notOnMainThread
         case alreadyInitialized
+        case autoapplyFailed
     }
 
     public private(set) static var style: StyleProtocol?
@@ -42,11 +43,15 @@ public struct RootStyle {
         try safeguard()
         self.style = style
         switch mode {
-            case .swizzle:
-                swizzleInstance(View.self, originalSelector: ViewDidMoveToWindowSelector, swizzledSelector: #selector(View.__stylesheet_didMoveToWindow))
-            case .appearance:
+        case .swizzle:
+            do {
+                try swizzleInstance(View.self, originalSelector: ViewDidMoveToWindowSelector, swizzledSelector: #selector(View.__stylesheet_didMoveToWindow))
+            } catch {
+                throw Failure.autoapplyFailed
+            }
+        case .appearance:
             #if os(iOS) || os(tvOS)
-                View.appearance().__stylesheet_applyRootStyle()
+            View.appearance().__stylesheet_applyRootStyle()
             #endif
         }
     }
@@ -61,22 +66,26 @@ public struct RootStyle {
     }
 }
 
-extension View {
-    fileprivate dynamic func __stylesheet_didMoveToWindow() {
+fileprivate extension View {
+    @objc dynamic
+    func __stylesheet_didMoveToWindow() {
         __stylesheet_didMoveToWindow()
         RootStyle.apply(to: self)
     }
 
     // This method should look like a setter to be compatible with `UIAppearance`.
-    fileprivate dynamic func __stylesheet_applyRootStyle(_: Any? = nil) {
+    @objc dynamic
+    func __stylesheet_applyRootStyle(_: Any? = nil) {
         RootStyle.apply(to: self)
     }
 }
 
 /// Based on http://nshipster.com/method-swizzling/
-private func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) {
-    let originalMethod = class_getInstanceMethod(cls, originalSelector)
-    let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
+private func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selector, swizzledSelector: Selector) throws {
+    guard
+        let originalMethod = class_getInstanceMethod(cls, originalSelector),
+        let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
+    else { throw SwizzleError.selectorNotFound }
 
     let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
 
@@ -85,4 +94,8 @@ private func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selec
     } else {
         method_exchangeImplementations(originalMethod, swizzledMethod)
     }
+}
+
+private enum SwizzleError: Error {
+    case selectorNotFound
 }
