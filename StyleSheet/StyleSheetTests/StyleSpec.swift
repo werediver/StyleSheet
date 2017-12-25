@@ -8,8 +8,8 @@ final class StyleSpec: QuickSpec {
 
     override func spec() {
         describe("Style") {
-            var sut: Style<Marker, Target>!
-            var body: StyleBodyMock<Target>!
+            var sut: Style<StyleMarker, BaseStyleTarget>!
+            var body: StyleBodyMock<BaseStyleTarget>!
 
             beforeEach {
                 body = StyleBodyMock()
@@ -21,10 +21,10 @@ final class StyleSpec: QuickSpec {
             }
 
             context("applied to marked target") {
-                var markedTarget: MarkedTarget!
+                var markedTarget: MarkedStyleTarget!
 
                 beforeEach {
-                    markedTarget = MarkedTarget()
+                    markedTarget = MarkedStyleTarget()
                     sut.apply(to: markedTarget)
                 }
 
@@ -33,15 +33,15 @@ final class StyleSpec: QuickSpec {
                 }
 
                 it("executes body") {
-                    expect(body.target) === markedTarget
+                    expect(body.captures.apply?.target) === markedTarget
                 }
             }
 
             context("applied to non-marked target") {
-                var nonMarkedTarget: Target!
+                var nonMarkedTarget: BaseStyleTarget!
 
                 beforeEach {
-                    nonMarkedTarget = Target()
+                    nonMarkedTarget = BaseStyleTarget()
                     sut.apply(to: nonMarkedTarget!)
                 }
 
@@ -50,7 +50,7 @@ final class StyleSpec: QuickSpec {
                 }
 
                 it("does not execute body") {
-                    expect(body.target).to(beNil())
+                    expect(body.captures.apply?.target).to(beNil())
                 }
             }
 
@@ -62,7 +62,7 @@ final class StyleSpec: QuickSpec {
                 }
 
                 it("does not execute body") {
-                    expect(body.target).to(beNil())
+                    expect(body.captures.apply?.target).to(beNil())
                 }
             }
         }

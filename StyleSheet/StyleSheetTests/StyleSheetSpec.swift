@@ -17,10 +17,10 @@ final class StyleSheetSpec: QuickSpec {
             }
 
             context("applied to target") {
-                var target: Target!
+                var target: BaseStyleTarget!
 
                 beforeEach {
-                    target = Target()
+                    target = BaseStyleTarget()
                     sut.apply(to: target!)
                 }
 
@@ -30,7 +30,7 @@ final class StyleSheetSpec: QuickSpec {
 
                 it("applies each style to target") {
                     styles.forEach { style in
-                        expect(style.some as? Target) === target
+                        expect(style.captures.apply?.some as? BaseStyleTarget) === target
                     }
                 }
             }

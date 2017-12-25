@@ -1,31 +1,42 @@
-import ObjectiveC
+import UIKit
 
 public final class RootStyle {
 
-    public enum Failure: Error {
-        case alreadyInitialized
+    public static let shared = RootStyle()
+
+    public func autoapply(style: StyleApplicator, method: AutoapplyMethod = .swizzle) throws {
+        guard self.style == nil
+        else { throw Failure.alreadySetup }
+
+        self.style = style
+
+        try method.viewInterceptor.install(hook: apply)
     }
 
     private var style: StyleApplicator?
 
-    public init() {}
-
-    public func set(style: StyleApplicator) throws {
-        guard self.style == nil
-        else { throw Failure.alreadyInitialized }
-
-        self.style = style
-    }
-
-    public func apply(to some: Any) {
+    private func apply(to some: Any) {
         style?.apply(to: some)
     }
+}
 
-//    private func oncePerObject(_ some: AnyObject, _ body: () -> Void) {
-//        let key = UnsafeRawPointer((#function as StaticString).utf8Start)
-//        if objc_getAssociatedObject(some, key) == nil {
-//            objc_setAssociatedObject(some, key, true, .OBJC_ASSOCIATION_RETAIN)
-//            body()
-//        }
-//    }
+public extension RootStyle {
+
+    enum AutoapplyMethod {
+        case swizzle
+        case custom(ViewIntercepting.Type)
+
+        var viewInterceptor: ViewIntercepting.Type {
+            switch self {
+            case .swizzle:
+                return SwizzlingViewInterceptor.self
+            case let .custom(viewInterceptor):
+                return viewInterceptor
+            }
+        }
+    }
+
+    enum Failure: Error {
+        case alreadySetup
+    }
 }

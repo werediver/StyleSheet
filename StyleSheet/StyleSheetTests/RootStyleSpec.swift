@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-import StyleSheet
+@testable import StyleSheet
 
 final class RootStyleSpec: QuickSpec {
 
@@ -18,78 +18,64 @@ final class RootStyleSpec: QuickSpec {
                 sut = nil
             }
 
-            context("provided with style") {
+            context("autoapply set up") {
                 var style: StyleMock!
-                var setStyleError: Error?
+                var viewInterceptorClass: ViewInterceptorMock.Type!
+                var autoapplyError: Error?
 
                 beforeEach {
                     style = StyleMock()
+                    viewInterceptorClass = ViewInterceptorMock.self
                     do {
-                        try sut.set(style: style)
+                        try sut.autoapply(style: style, method: .custom(viewInterceptorClass))
                     } catch {
-                        setStyleError = error
+                        autoapplyError = error
                     }
                 }
 
                 afterEach {
                     style = nil
-                    setStyleError = nil
+                    viewInterceptorClass = nil
+                    autoapplyError = nil
                 }
 
                 it("succeeds") {
-                    expect(setStyleError).to(beNil())
+                    expect(autoapplyError).to(beNil())
                 }
 
-                context("applied to target") {
-                    var target: Target!
-
-                    beforeEach {
-                        target = Target()
-                        sut.apply(to: target)
-                    }
-
-                    afterEach {
-                        target = nil
-                    }
-
-                    it("applies style to target") {
-                        expect(style.some) === target
-                    }
-
-                    /*
-                    context("again applied to same target") {
-
-                        beforeEach {
-                            style.some = nil
-                            sut.apply(to: target)
-                        }
-
-                        it("does not apply style to target") {
-                            expect(style.some).to(beNil())
-                        }
-                    }
-                    */
+                it("installs hook") {
+                    expect(viewInterceptorClass.captures.install).toNot(beNil())
                 }
 
-                context("again provided with style") {
+                context("autoapply set up more than once") {
 
                     beforeEach {
                         do {
-                            try sut.set(style: style)
+                            try sut.autoapply(style: style)
                         } catch {
-                            setStyleError = error
+                            autoapplyError = error
                         }
                     }
 
                     it("fails") {
-                        expect(setStyleError as? RootStyle.Failure) == .alreadyInitialized
+                        expect(autoapplyError as? RootStyle.Failure) == .alreadySetup
                     }
                 }
 
-                context("autoapply set up") {
+                context("view intercepted") {
+                    var view: UIView!
 
                     beforeEach {
-                        sut.
+                        view = UIView(frame: .zero)
+                        viewInterceptorClass.captures.install?.hook(view)
+                    }
+
+                    afterEach {
+                        view = nil
+                    }
+
+                    it("applies style") {
+                        expect(style.captures.apply?.some) === view
                     }
                 }
             }
