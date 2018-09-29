@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIView {
+
     @discardableResult
     func ignoreAutoresizingMask() -> Self {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -9,6 +10,7 @@ extension UIView {
 }
 
 extension NSLayoutConstraint {
+
     @discardableResult
     func activate() -> Self {
         self.isActive = true

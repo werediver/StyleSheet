@@ -2,9 +2,13 @@ import UIKit
 
 @IBDesignable
 final class TitledSwitchView: UIView {
+
     final class TitleLabel: UILabel {}
+
     final class DetailLabel: UILabel {}
+
     final class SwitchView: UISwitch {
+
         override var alignmentRectInsets: UIEdgeInsets {
             // The original `alignmentRectInsets` could be wrong.
             return .zero
@@ -12,6 +16,7 @@ final class TitledSwitchView: UIView {
     }
 
     private struct Offset {
+    
         static let xSmall: CGFloat = 4
         static let small: CGFloat = 8
     }

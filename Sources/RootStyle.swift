@@ -9,6 +9,7 @@ private let ViewDidMoveToWindowSelector = #selector(View.viewDidMoveToWindow)
 #endif
 
 public struct RootStyle {
+
     private static var isStyleAppliedKey = "isStyleApplied"
 
     public enum AutoapplyMethod {
@@ -67,6 +68,7 @@ public struct RootStyle {
 }
 
 private extension View {
+
     @objc dynamic
     func __stylesheet_didMoveToWindow() {
         __stylesheet_didMoveToWindow()
@@ -97,5 +99,6 @@ private func swizzleInstance<T: NSObject>(_ cls: T.Type, originalSelector: Selec
 }
 
 private enum SwizzleError: Error {
+
     case selectorNotFound
 }
