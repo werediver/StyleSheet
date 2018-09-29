@@ -1,4 +1,4 @@
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-blue.svg)](https://swift.org/)
+[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-blue.svg)](https://swift.org/)
 ![Platforms: iOS, macOS](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-brightgreen.svg)](https://cocoapods.org/)
@@ -48,13 +48,13 @@ Because we can do better. By avoiding the use of the appearance-proxy we can acc
 ### Carthage
 
 ```
-github "werediver/StyleSheet" ~> 4.0
+github "werediver/StyleSheet" ~> 5.0
 ```
 
 ### CacoaPods
 
 ```ruby
-pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v4.0.0'
+pod 'StyleSheet', :git => 'https://github.com/werediver/StyleSheet.git', :tag => 'v5.0.0'
 ```
 
 Note: check the latest available version!

@@ -26,8 +26,8 @@ struct DefaultPalette: PaletteProtocol {
     }
 
     struct FontPalette: FontPaletteProtocol {
-        let title = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title3)
-        let body = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-        let caption = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+        let title = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3)
+        let body = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+        let caption = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
     }
 }

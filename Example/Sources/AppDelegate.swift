@@ -5,7 +5,7 @@ import StyleSheet
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // `autoapply(style: <#style#>)` uses method swizzling to hook up to the view.
         // `autoapply(style: <#style#>, mode: .appearance)` uses `UIAppearance`.
         try! RootStyle.autoapply(style: appStyle(palette: DefaultPalette()))
